@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Phát triển chương trình sử dụng Remote để điều khiển Tivi</title>
+	<script type="text/javascript" src="Tivi.js"></script>
+	<script type="text/javascript" src="Remote.js"></script>
+	<style type="text/css">
+		html, body {
+			background:  #f6f6f6;
+			font-family: Arial;
+		}
+		.regBox{
+			background: #fff;
+			padding: 15px;
+			margin: 20px auto 0 auto;
+			max-width: 600px;
+			box-shadow: 0 0 5px -1px #ddd;
+		}
+	</style>
+</head>
+<body>
+	<p><center>[*Bài tập] Phát triển chương trình sử dụng Remote để điều khiển Tivi</center></p>
+	<div class="regBox">
+		<p><center>TIVI</center></p>
+		<table>
+			<tbody id="tivi">
+				<tr>
+					<td>Trạng thái:</td>
+					<td><strong id="status">OFF</strong></td>
+				</tr>
+				<tr>
+					<td>Channel:</td>
+					<td><strong id="channel">1</strong></td>
+				</tr>
+				<tr>
+					<td>Volume:</td>
+					<td><strong id="volume">30</strong></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="regBox">
+		<p><center>Remote</center></p>
+		<button onclick="remote.changerActive()">Bật Tivi</button><br /><br />
+		<button onclick="remote.channelUp()">Channel +</button>
+		<button onclick="remote.channelDown()">Channel -</button> 
+		<button onclick="remote.toChannel()">To Channel</button><br /><br />
+		<button onclick="remote.volumeUp()">Volume +</button>
+		<button onclick="remote.volumeDown()">Volume -</button><br /><br />
+	</div>
+	<script type="text/javascript">
+		let tivi   = new Tivi('tivi');
+		let remote = new Remote(tivi);
+	</script>
+</body>
+</html>
